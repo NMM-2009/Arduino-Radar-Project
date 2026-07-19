@@ -35,7 +35,7 @@ See [radar/radar.ino](radar/radar.ino)
 
 ## Known Issues
 - Servo sweep speed can't easily be adjusted since removing delay(10) in the for loop fixed the buzzer timing bug but there is now no delay when the servo moves
-- Servo movement becomes jumpy/inconsistent when powered by battery instead of connecting to a computer (works reliably when connected to computer over USB)
+- Servo movement becomes jumpy/inconsistent when powered by battery instead of connecting to a computer (works reliably when connected to computer over USB). This is probably due to the fact I'm using a 9V battery and it can't provide enough current for the servo motor to run consistently 
 
 ## Next
 - Add LCD screen to be able to see current settings (what mode it is in and threshold range)

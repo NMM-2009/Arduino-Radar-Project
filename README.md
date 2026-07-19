@@ -33,6 +33,10 @@ A servo sweeps back and forth continuously and has an ultrasonic sensor attached
 ## Code
 See [radar/radar.ino](radar/radar.ino)
 
+## Known Issues
+- Servo sweep speed can't easily be adjusted since removing delay(10) in the for loop fixed the buzzer timing bug but there is now no delay when the servo moves
+- Servo movement becomes jumpy/inconsistent when powered by battery instead of connecting to a computer (works reliably when connected to computer over USB)
+
 ## Next
 - Add LCD screen to be able to see current settings (what mode it is in and threshold range)
 - Potentially link to computer visuals to show a radar which reflects what the sensor is detecting (probably in python)

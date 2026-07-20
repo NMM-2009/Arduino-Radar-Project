@@ -24,6 +24,14 @@ https://github.com/user-attachments/assets/c070e48a-1037-4687-a631-6122cff5db94
 
 <br><br>
 
+## Features
+ - 180° radar sweep
+ - Adjustable detection threshold
+ - Armed/disarmed modes
+ - RGB status indicator
+ - Distance-dependent buzzer
+ - LCD display
+
 ## Parts:
  - Elegoo UNO R3 (Arduino Uno-compatible board)
  - 830 Tie-Points Breadboard

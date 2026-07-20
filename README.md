@@ -73,7 +73,7 @@ https://github.com/user-attachments/assets/c070e48a-1037-4687-a631-6122cff5db94
 <img src="Images/Arduino-Radar-Project.jpg" width="1000">
 
 ## Code
-See [radar/radar.ino](radar/radar.ino)
+See [radar/radar.ino](radar/radar.ino) for arduino code and see [visualiser/radar_visual.py](visualiser/radar_visual.py) for python code
 
 ## Known Issues
 - ~~Servo sweep speed can't easily be adjusted since removing delay(10) in the for loop fixed the buzzer timing bug but there is now no delay when the servo moves~~ **Resolved:** added the delay(10); back into the for loop so now the speed can be controlled and everything is now working but I don't know why it works now and didn't earlier

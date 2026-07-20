@@ -4,7 +4,17 @@ I built an object detecting alarm build using an Arduino Uno as a first project 
 A servo sweeps back and forth continuously and has an ultrasonic sensor attached to it which constantly scans 180 degrees. A mini breadboard has the ultrasonic sensor and it's wires attached to it and is placed on top of the servo and held in place with elastic bands so that the entire ultrasonic senor can move without potentially damaging parts. It has a button to arm and disarm the system. When disarmed, the LED glows green and when armed it glows yellow. When the system is armed, it checks if any objects are within a certain threshold distance from the sensor and if it detects something, the LED turns red and the active buzzer activates. The buzzer turns on and off repeatedly while the object is within the threshold and beeps faster the closer the object is to the sensor. The threshold distance can be adjusted with the potentiometer from 5cm to 60cm.
 
 ## Demo
+<img src="Images/IMG_5467.jpeg" width="500">
 
+*The ultrasonic sensor attached to the mini breadboard and connected to the servo motor*
+
+<br><br>
+
+<img src="Images/IMG_5468.jpeg" width="500"><img src="Images/IMG_5469.jpeg" width="500">
+
+*Full circuit and top down view of it*
+
+<br><br>
 
 ## Parts:
  - Elegoo UNO R3 (Arduino Uno-compatible board)
@@ -23,17 +33,24 @@ A servo sweeps back and forth continuously and has an ultrasonic sensor attached
  - x2 Elastic Bands
 
 ## Wiring
-| Component | Pin |
-|---|---|
-| Servo | 9 |
-| Buzzer | 10 |
-| RGB LED - Red | 6 |
-| RGB LED - Green | 5 |
-| RGB LED - Blue | 3 |
-| HC-SR04 Trig | 12 |
-| HC-SR04 Echo | 11 |
-| Button | 2 |
-| Potentiometer | A0 |
+| Component        | Pin |
+| ----------------- | --- |
+| Servo              | 9   |
+| Buzzer             | 10  |
+| RGB LED - Red      | 6   |
+| RGB LED - Green    | 5   |
+| RGB LED - Blue     | 3   |
+| HC-SR04 Trig       | 12  |
+| HC-SR04 Echo       | 11  |
+| Button             | 2   |
+| Potentiometer      | A0  |
+| LCD RS             | 13  |
+| LCD E              | 8   |
+| LCD D4             | A2  |
+| LCD D5             | A3  |
+| LCD D6             | A4  |
+| LCD D7             | A5  |
+| LCD V0             | GND (via 2k ohm resistor) |
 
 ## Code
 See [radar/radar.ino](radar/radar.ino)

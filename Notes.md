@@ -20,3 +20,5 @@
 - Added a function to output the correct data (current state and threshold distance) to the LCD screen and refreshed the screen every time it checks if either thing is changed
 - Changed 1k ohm resistor on contrast to 2k ohm resistor to look better
 - Readded the delay(10); to the servo for loop and everything worked as intended including the buzzer but I don't know why it works now and didn't before
+- Updated servo moving loop to also use millis() so no longer has delays and only delay is used on the button so everything stops wen modes are switched
+- Looked into how to have [arduino communicate with  a python file over serial](https://38-3d.co.uk/blogs/blog/how-to-use-python-to-communicate-with-an-arduino-uno-over-serial) and installed pyserial library

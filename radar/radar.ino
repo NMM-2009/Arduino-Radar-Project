@@ -29,6 +29,7 @@ LiquidCrystal lcd(13, 8, A2, A3, A4, A5);
 
 int threshold;
 
+// Refresh screen by clearing then writing the data to it
 void setScreen(){
   lcd.clear();
   lcd.setCursor(0,0);

@@ -68,6 +68,10 @@ https://github.com/user-attachments/assets/c070e48a-1037-4687-a631-6122cff5db94
 | LCD D7             | A5  |
 | LCD V0             | GND (via 2k ohm resistor) |
 
+## Schematic
+
+<img src="Images/Arduino-Radar-Project.pdf" width="500">
+
 ## Code
 See [radar/radar.ino](radar/radar.ino)
 

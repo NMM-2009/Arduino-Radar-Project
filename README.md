@@ -8,6 +8,10 @@ https://github.com/user-attachments/assets/f409847e-f27d-4b6c-b17b-862043d4f14a
 
 *Servo sweeping back and forth with ultrasonic sensor*
 
+https://github.com/user-attachments/assets/c070e48a-1037-4687-a631-6122cff5db94
+
+*Demo of it being turned to armed and detecting an object*
+
 <img src="Images/IMG_5467.jpeg" width="500">
 
 *The ultrasonic sensor attached to the mini breadboard and connected to the servo motor*

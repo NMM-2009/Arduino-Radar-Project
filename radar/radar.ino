@@ -2,14 +2,20 @@
 #include <SR04.h>
 #include <Servo.h>
 
-unsigned long lastBeep = 0; // Allows to have delays with buzzer without delaying the rest of the system
+// Create variable so can wait by getting current time and not using delays
+
+unsigned long lastBeep = 0;
 int beepInterval;
 
+unsigned long lastMove = 0;
+int moveInterval = 10;
+
 Servo myServo;
-int pos = 0;
+int angle = 0;
+int dir = -1;
 
 int buzzer = 10;
-int buzzerState = 0; // 0 means buzzer is off and 1 means buzzer is on
+int buzzerState = 0;
 
 int button = 2;
 int setting = 0; // 0 means system is off, 1 means system is on
@@ -29,7 +35,8 @@ LiquidCrystal lcd(13, 8, A2, A3, A4, A5);
 
 int threshold;
 
-// Refresh screen by clearing then writing the data to it
+bool detected;
+
 void setScreen(){
   lcd.clear();
   lcd.setCursor(0,0);
@@ -46,12 +53,10 @@ void setScreen(){
 }
 
 void measure(){
-  // Check if button is pressed and switch to arm/disarm
   if (digitalRead(button) == LOW){
       setting = 1 - setting;
       delay(200);
     }
-  // Get distance from ultrasonic sensor and check if an object is within a certain distance
   a = sr04.Distance();
   threshold = map(analogRead(pot), 0, 1023, 5, 60);
   setScreen();
@@ -65,6 +70,7 @@ void measure(){
       digitalWrite(BLUE, LOW);
       digitalWrite(buzzer, LOW);
       buzzerState = 0;
+      detected = false;
     }
 
   }else{
@@ -73,14 +79,15 @@ void measure(){
     digitalWrite(BLUE, LOW);
     digitalWrite(buzzer, LOW);
     buzzerState = 0;
+    detected = false;
   }
 }
 
-// Turn LED to red and have buzzer beep increasingly quickly as object gets closer
 void alarm(){
   digitalWrite(GREEN, LOW);
   digitalWrite(RED, HIGH);
   digitalWrite(BLUE, LOW);
+  detected = true;
 
   unsigned long now = millis();
   if (now - lastBeep >= beepInterval){
@@ -97,6 +104,9 @@ void alarm(){
 
 void setup() {
   // put your setup code here, to run once:
+  Serial.begin(9600);
+  while (!Serial); // Waits for serial port to connect
+
   myServo.attach(9);
   pinMode(buzzer, OUTPUT);
   pinMode(button, INPUT_PULLUP);
@@ -110,15 +120,22 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  // Servo sweeps back and forth continuously with 180 degrees range
-  for (pos = 0; pos <= 180; pos ++){
-    myServo.write(pos);
+  // Run all hardware functions
+  unsigned long servoNow = millis();
+  if (servoNow - lastMove >= moveInterval){
+    lastMove = servoNow;
+    myServo.write(angle);
     measure();
-    delay(10);
+    if (angle <= 0 || angle >= 180){
+      dir *= -1;
+    }
+    angle += dir;
   }
-  for (pos = 180; pos >= 0; pos --){
-    myServo.write(pos);
-    measure();
-    delay(10);
-  }
+
+  // Send data to python
+  Serial.print(a);
+  Serial.print("\n");
+  Serial.print(detected);
+  Serial.print("\n");
+  Serial.flush();
 }

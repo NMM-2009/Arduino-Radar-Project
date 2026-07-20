@@ -70,7 +70,7 @@ https://github.com/user-attachments/assets/c070e48a-1037-4687-a631-6122cff5db94
 
 ## Schematic
 
-<img src="Images/Arduino-Radar-Project.pdf" width="500">
+<img src="Images/Arduino-Radar-Project.jpg" width="1000">
 
 ## Code
 See [radar/radar.ino](radar/radar.ino)

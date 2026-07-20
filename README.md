@@ -4,6 +4,10 @@ I built an object detecting alarm build using an Arduino Uno as a first project 
 A servo sweeps back and forth continuously and has an ultrasonic sensor attached to it which constantly scans 180 degrees. A mini breadboard has the ultrasonic sensor and it's wires attached to it and is placed on top of the servo and held in place with elastic bands so that the entire ultrasonic senor can move without potentially damaging parts. It has a button to arm and disarm the system. When disarmed, the LED glows green and when armed it glows yellow. When the system is armed, it checks if any objects are within a certain threshold distance from the sensor and if it detects something, the LED turns red and the active buzzer activates. The buzzer turns on and off repeatedly while the object is within the threshold and beeps faster the closer the object is to the sensor. The threshold distance can be adjusted with the potentiometer from 5cm to 60cm.
 
 ## Demo
+https://github.com/user-attachments/assets/f409847e-f27d-4b6c-b17b-862043d4f14a
+
+*Servo sweeping back and forth with ultrasonic sensor*
+
 <img src="Images/IMG_5467.jpeg" width="500">
 
 *The ultrasonic sensor attached to the mini breadboard and connected to the servo motor*

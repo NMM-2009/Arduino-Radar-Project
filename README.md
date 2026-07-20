@@ -1,7 +1,7 @@
 # Arduino Radar Project
 I built an object detecting alarm build using an Arduino Uno as a first project and to consolidate knowledge and to see what I could make without using tutorials. It uses an ultrasonic sensor to detect objects and has LED and buzzer outputs. 
 
-A servo sweeps back and forth continuously and has an ultrasonic sensor attached to it which constantly scans 180 degrees. A mini breadboard has the ultrasonic sensor and it's wires attached to it and is placed on top of the servo and held in place with elastic bands so that the entire ultrasonic senor can move without potentially damaging parts. It has a button to arm and disarm the system. When disarmed, the LED glows green and when armed it glows yellow. When the system is armed, it checks if any objects are within a certain threshold distance from the sensor and if it detects something, the LED turns red and the active buzzer activates. The buzzer turns on and off repeatedly while the object is within the threshold and beeps faster the closer the object is to the sensor. The threshold distance can be adjusted with the potentiometer from 5cm to 60cm.
+A servo sweeps back and forth continuously and has an ultrasonic sensor attached to it which constantly scans 180 degrees. A mini breadboard has the ultrasonic sensor and it's wires attached to it and is placed on top of the servo and held in place with elastic bands so that the entire ultrasonic sensor can move without potentially damaging parts. It has a button to arm and disarm the system. When disarmed, the LED glows green and when armed it glows yellow. When the system is armed, it checks if any objects are within a certain threshold distance from the sensor and if it detects something, the LED turns red and the active buzzer activates. The buzzer turns on and off repeatedly while the object is within the threshold and beeps faster the closer the object is to the sensor. The threshold distance can be adjusted with the potentiometer from 5cm to 60cm.
 
 ## Demo
 https://github.com/user-attachments/assets/f409847e-f27d-4b6c-b17b-862043d4f14a
@@ -68,5 +68,5 @@ See [radar/radar.ino](radar/radar.ino)
 - Servo movement becomes jumpy/inconsistent when powered by battery instead of connecting to a computer (works reliably when connected to computer over USB). This is probably due to the fact I'm using a 9V battery and it can't provide enough current for the servo motor to run consistently 
 
 ## Next
-- Add LCD screen to be able to see current settings (what mode it is in and threshold range)
+- ~~Add LCD screen to be able to see current settings (what mode it is in and threshold range)~~ **Done:** LCD1602 now works correctly
 - Potentially link to computer visuals to show a radar which reflects what the sensor is detecting (probably in python)

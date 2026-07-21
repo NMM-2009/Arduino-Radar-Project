@@ -24,3 +24,7 @@
 - Looked into how to have [arduino communicate with  a python file over serial](https://38-3d.co.uk/blogs/blog/how-to-use-python-to-communicate-with-an-arduino-uno-over-serial) and installed pyserial library
 - Tried to get python file to read from arduino serial with help from [arduino project hub](https://projecthub.arduino.cc/ansh2919/serial-communication-between-python-and-arduino-663756), [pyserial documentation](https://pyserial.readthedocs.io/en/latest/shortintro.html#opening-serial-ports) and [arduino forum](https://forum.arduino.cc/t/cannot-send-serial-data-from-python-to-arduino-uno/1137529) However, I kept getting an error saying port was busy. Eventually figured out it was because the serial was open and got the python file to read data correctly
 - Got python script correctly detecting distance from object and whether it set off the alarm or not
+
+## Day 3
+- Remade python file structure to have a file for getting data from arduino and a file responsible for the GUI
+- Learnt how to make a window using python with tkinter using [pythonguis.com](https://www.pythonguis.com/tutorials/create-gui-tkinter/)

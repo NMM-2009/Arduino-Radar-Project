@@ -1,5 +1,5 @@
 # Arduino Radar Project
-I built an object detection alarm using an Arduino Uno as a first project and to consolidate knowledge and to see what I could make without using tutorials. It uses an ultrasonic sensor to detect objects and has LED and buzzer outputs. 
+I built an object detection alarm using an Arduino Uno as a first project and to consolidate knowledge and to see what I could make without using tutorials. It uses an ultrasonic sensor to detect objects and has LED and buzzer outputs and is connected to python scripts to display a basic radar visual
 
 ## Features
  - 180° radar sweep
@@ -8,10 +8,11 @@ I built an object detection alarm using an Arduino Uno as a first project and to
  - RGB status indicator
  - Distance-dependent buzzer
  - LCD display
+ - Opens window when connected to computer with radar visuals using python
 
 ## Overview
 
-A servo sweeps back and forth continuously and has an ultrasonic sensor attached to it which constantly scans 180 degrees. A mini breadboard has the ultrasonic sensor and it's wires attached to it and is placed on top of the servo and held in place with elastic bands so that the entire ultrasonic sensor can move without potentially damaging parts. It has a button to arm and disarm the system. When disarmed, the LED glows green and when armed it glows yellow. When the system is armed, it checks if any objects are within a certain threshold distance from the sensor and if it detects something, the LED turns red and the active buzzer activates. The buzzer turns on and off repeatedly while the object is within the threshold and beeps faster the closer the object is to the sensor. The threshold distance can be adjusted with the potentiometer from 5cm to 60cm.
+A servo sweeps back and forth continuously and has an ultrasonic sensor attached to it which constantly scans 180 degrees. A mini breadboard has the ultrasonic sensor and it's wires attached to it and is placed on top of the servo and held in place with elastic bands so that the entire ultrasonic sensor can move without potentially damaging parts. It has a button to arm and disarm the system. When disarmed, the LED glows green and when armed it glows yellow. When the system is armed, it checks if any objects are within a certain threshold distance from the sensor and if it detects something, the LED turns red and the active buzzer activates. The buzzer turns on and off repeatedly while the object is within the threshold and beeps faster the closer the object is to the sensor. The threshold distance can be adjusted with the potentiometer from 5cm to 60cm. Everytime the servo updates position, it sends it's angle, distance to object and whether it set off the alarm to a python file using the serial and the python file opens a window with a visual of a radar line sweeping back and forth with it's length dependent on the length detected and it's colour dependent on whether the object set off the alarm or not.
 
 ## Demo
 https://github.com/user-attachments/assets/f409847e-f27d-4b6c-b17b-862043d4f14a
@@ -77,7 +78,7 @@ https://github.com/user-attachments/assets/b265782a-42ca-41a5-a3e9-eb78aaa1a5be
 <img src="Images/Arduino-Radar-Project.jpg" width="1000">
 
 ## Code
-See [radar/radar.ino](radar/radar.ino)
+See [radar/radar.ino](radar/radar.ino) for arduino code and see [visualiser/radar_visual.py](visualiser/radar_visual.py) for python code
 
 ## Known Issues
 - ~~Servo sweep speed can't easily be adjusted since removing delay(10) in the for loop fixed the buzzer timing bug but there is now no delay when the servo moves~~ **Resolved:** added the delay(10); back into the for loop so now the speed can be controlled and everything is now working but I don't know why it works now and didn't earlier
@@ -85,4 +86,5 @@ See [radar/radar.ino](radar/radar.ino)
 
 ## Next
 - ~~Add LCD screen to be able to see current settings (what mode it is in and threshold range)~~ **Done:** LCD1602 now works correctly
-- Potentially link to computer visuals to show a radar which reflects what the sensor is detecting (probably in python)
+- ~~Potentially link to computer visuals to show a radar which reflects what the sensor is detecting (probably in python)~~ **Done:** now has basic visuals using python
+- Update/improve the radar visual

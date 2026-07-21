@@ -24,3 +24,11 @@
 - Looked into how to have [arduino communicate with  a python file over serial](https://38-3d.co.uk/blogs/blog/how-to-use-python-to-communicate-with-an-arduino-uno-over-serial) and installed pyserial library
 - Tried to get python file to read from arduino serial with help from [arduino project hub](https://projecthub.arduino.cc/ansh2919/serial-communication-between-python-and-arduino-663756), [pyserial documentation](https://pyserial.readthedocs.io/en/latest/shortintro.html#opening-serial-ports) and [arduino forum](https://forum.arduino.cc/t/cannot-send-serial-data-from-python-to-arduino-uno/1137529) However, I kept getting an error saying port was busy. Eventually figured out it was because the serial was open and got the python file to read data correctly
 - Got python script correctly detecting distance from object and whether it set off the alarm or not
+
+## Day 3
+- Remade python file structure to have a file for getting data from arduino and a file responsible for the GUI
+- Learnt how to make a window using python with tkinter using [pythonguis.com](https://www.pythonguis.com/tutorials/create-gui-tkinter/)
+- Got a visual of a line sweeping back and forth like a radar working with help from claude and [tutorialspoint.com](https://www.tutorialspoint.com/article/tkinter-how-to-create-colored-lines-based-on-length#:~:text=To%20create%20lines%20on%20a,the%20length%20of%20the%20line.)
+- Changed data_fetcher.py to have a function to get data instead of continuously fetching it and gave that function to GUI.py
+- Connected the python scripts together and it all worked perfectly until I switched mode where I got an error saying angle didn't have a value so there was an issue sending it from the arduino serial to the python file
+- This was due to the delay(200); when checking if the button was pressed as it would pause sending the data but the python doesn't pause so I replaced that to use millis() and it now works

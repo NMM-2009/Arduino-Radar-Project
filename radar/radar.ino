@@ -137,5 +137,7 @@ void loop() {
   Serial.print("\n");
   Serial.print(detected);
   Serial.print("\n");
+  Serial.print(angle);
+  Serial.print("\n");
   Serial.flush();
 }

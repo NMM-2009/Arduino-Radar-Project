@@ -28,3 +28,7 @@
 ## Day 3
 - Remade python file structure to have a file for getting data from arduino and a file responsible for the GUI
 - Learnt how to make a window using python with tkinter using [pythonguis.com](https://www.pythonguis.com/tutorials/create-gui-tkinter/)
+- Got a visual of a line sweeping back and forth like a radar working with help from claude and [tutorialspoint.com](https://www.tutorialspoint.com/article/tkinter-how-to-create-colored-lines-based-on-length#:~:text=To%20create%20lines%20on%20a,the%20length%20of%20the%20line.)
+- Changed data_fetcher.py to have a function to get data instead of continuously fetching it and gave that function to GUI.py
+- Connected the python scripts together and it all worked perfectly until I switched mode where I got an error saying angle didn't have a value so there was an issue sending it from the arduino serial to the python file
+- This was due to the delay(200); when checking if the button was pressed as it would pause sending the data but the python doesn't pause so I replaced that to use millis() and it now works

@@ -1,5 +1,5 @@
 # Arduino Radar Project
-I built an object detection alarm using an Arduino Uno as a first project and to consolidate knowledge and to see what I could make without using tutorials. It uses an ultrasonic sensor to detect objects and has LED and buzzer outputs and is connected to python scripts to display a basic radar visual
+I built an object detection alarm using an Arduino Uno as a first project and to consolidate knowledge and to see what I could make without following a tutorial. It uses an ultrasonic sensor to detect objects and has LED and buzzer outputs and is connected to python scripts to display a basic radar visual.
 
 ## Features
  - 180° radar sweep
@@ -52,6 +52,26 @@ https://github.com/user-attachments/assets/b265782a-42ca-41a5-a3e9-eb78aaa1a5be
  - 2k ohm resistor
  - Male-to-Male Jumper Wires
  - x2 Elastic Bands
+
+## Software Requirements
+
+### Arduino
+- Arduino IDE 2.x (or compatible version)
+- **Servo** library for controlling the servo motor
+- **LiquidCrystal** library for LCD1602 module
+- **SR04** library for ultrasonic sensor
+
+Install the SR04 library using the Arduino IDE Library Manager before uploading the sketch
+
+### Python
+- Python 3.14 (or Python 3.10+)
+- **pyserial** library
+
+Install the Python libraries with:
+
+```bash
+pip install pyserial
+```
 
 ## Wiring
 | Component        | Pin |

@@ -32,6 +32,10 @@ https://github.com/user-attachments/assets/c070e48a-1037-4687-a631-6122cff5db94
 
 *Full circuit and top down view of it*
 
+https://github.com/user-attachments/assets/b265782a-42ca-41a5-a3e9-eb78aaa1a5be
+
+*Radar visual sweeping back and forth as servo moves and turning red when alarm set off*
+
 ## Parts:
  - Elegoo UNO R3 (Arduino Uno-compatible board)
  - 830 Tie-Points Breadboard

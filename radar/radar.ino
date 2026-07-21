@@ -10,6 +10,9 @@ int beepInterval;
 unsigned long lastMove = 0;
 int moveInterval = 10;
 
+unsigned long lastButtonCheck = 0;
+int buttonCheckInterval = 150;
+
 Servo myServo;
 int angle = 0;
 int dir = -1;
@@ -53,10 +56,12 @@ void setScreen(){
 }
 
 void measure(){
-  if (digitalRead(button) == LOW){
+  if (millis() - lastButtonCheck >= buttonCheckInterval){
+    lastButtonCheck = millis();
+    if (digitalRead(button) == LOW){
       setting = 1 - setting;
-      delay(200);
     }
+  }
   a = sr04.Distance();
   threshold = map(analogRead(pot), 0, 1023, 5, 60);
   setScreen();
@@ -89,9 +94,8 @@ void alarm(){
   digitalWrite(BLUE, LOW);
   detected = true;
 
-  unsigned long now = millis();
-  if (now - lastBeep >= beepInterval){
-    lastBeep = now;
+  if (millis() - lastBeep >= beepInterval){
+    lastBeep = millis();
     if (buzzerState == 1){
       digitalWrite(buzzer, LOW);
       buzzerState = 0;
@@ -121,21 +125,22 @@ void loop() {
   // put your main code here, to run repeatedly:
 
   // Run all hardware functions
-  unsigned long servoNow = millis();
-  if (servoNow - lastMove >= moveInterval){
-    lastMove = servoNow;
+  if (millis() - lastMove >= moveInterval){
+    lastMove = millis();
     myServo.write(angle);
     measure();
     if (angle <= 0 || angle >= 180){
       dir *= -1;
     }
     angle += dir;
-  }
 
-  // Send data to python
-  Serial.print(a);
-  Serial.print("\n");
-  Serial.print(detected);
-  Serial.print("\n");
-  Serial.flush();
+    // Send data to python
+    Serial.print(angle);
+    Serial.print(",");
+    Serial.print(a);
+    Serial.print(",");
+    Serial.print(detected);
+    Serial.print("\n");
+    Serial.flush();
+  }
 }

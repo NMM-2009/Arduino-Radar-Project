@@ -14,9 +14,9 @@ def drawLine():
     x = cos(phi) * distance * cmPixelFactor
     y = sin(phi) * distance * cmPixelFactor
     if detected == 0:
-        line = canvas.create_line(int(canvasWidth) / 2, int(canvasHeight) / 2, int(canvasWidth) / 2 - x, int(canvasHeight) / 2 - y, fill = "green")
+        line = canvas.create_line(int(canvasWidth) / 2, int(canvasHeight) / 2 + 200, int(canvasWidth) / 2 - x, int(canvasHeight) / 2 + 200 - y, fill = "green", width = 5)
     else:
-        line = canvas.create_line(int(canvasWidth) / 2, int(canvasHeight) / 2, int(canvasWidth) / 2 - x, int(canvasHeight) / 2 - y, fill = "red")
+        line = canvas.create_line(int(canvasWidth) / 2, int(canvasHeight) / 2 + 200, int(canvasWidth) / 2 - x, int(canvasHeight) / 2 + 200 - y, fill = "red", width = 5)
     root.after(10, drawLine)
 
 root = Tk() # Make a window
@@ -32,7 +32,7 @@ root.geometry("1000x1000") #  "300x300+50+50" Takes width and height and x and y
 Label(root, text = "Arduino Radar Alarm").pack()
 
 canvasHeight = "1000"
-canvasWidth = "1000"
+canvasWidth = "2000"
 canvas = Canvas(root, width = canvasWidth, height = canvasHeight, background = "black")
 canvas.pack()
 line = canvas.create_line(0, 0, 0, 0)
